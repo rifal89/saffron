@@ -1,10 +1,9 @@
 var path              = require('path');
 var webpack           = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    'browser' : './packages/browser/entry.js'
+    'browser' : './src/editor/entry.js'
   },
   output: {
     path: __dirname + '/public',
@@ -13,12 +12,12 @@ module.exports = {
     sourceMapFilename: '/bundle/[name].js.map'
   },
   resolve: {
-    modulesDirectories: [__dirname + '/packages', 'node_modules', 'bower_components', 'packages', 'vendor', __dirname],
+    modulesDirectories: [__dirname + '/src', 'node_modules', 'bower_components', 'src', 'vendor', __dirname],
     extensions: ['', '.json', '.jsx', '.js']
   },
-  devtool: 'eval',
+  devtool: 'inline-source-map',
   sassLoader: {
-    includePaths: [path.resolve(__dirname, './packages')]
+    includePaths: [path.resolve(__dirname, './src')]
   },
   lazy: true,
   watchOptions: {
@@ -28,9 +27,6 @@ module.exports = {
   node: {
     __filename: true
   },
-  plugins: [
-    new ExtractTextPlugin('/bundle/[name].css')
-  ],
   module: {
     loaders: [
       {
@@ -65,7 +61,7 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['react', 'es2015', 'stage-1', 'stage-0'],
-          plugins: ['transform-decorators'],
+          plugins: ['transform-decorators-legacy'],
           ignore: ['buffer']
         }
       }

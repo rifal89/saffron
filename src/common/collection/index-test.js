@@ -1,3 +1,4 @@
+import expect from 'expect.js';
 import Collection from './index';
 
 describe(__filename + '#', function() {
@@ -9,12 +10,22 @@ describe(__filename + '#', function() {
     var a = Collection.create({ name: 'a' });
     expect(a.name).to.be('a');
   });
+  
+  it('can use includes() method', function() {
+    var a = Collection.create();
+    a.push(1, 2, 3);
+    expect(a.includes(1)).to.be(true);
+    expect(a.includes(3)).to.be(true);
+    expect(a.includes(66)).to.be(false);
+  });
 
   it('can push items into the collection', function() {
     var a = Collection.create();
     a.push(1, 2, 3);
     expect(a.length).to.be(3);
   });
+  
+  
 
   it('can unshift() items', function() {
     var a = Collection.create();

@@ -4,3 +4,4 @@ coverage/
 npm-*
 git-*
 /public/bundle
+all-tests.js

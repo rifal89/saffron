@@ -7,7 +7,7 @@ import { createFactory } from 'common/utils/class';
 
 class BaseCollection {
 
-  /**
+  /** 
    *
    * @param {Object} properties the initial properties to define on base collection
    * @param {Array} values the initial array values to set into the collection
