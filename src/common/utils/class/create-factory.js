@@ -1,7 +1,7 @@
 
 /**
- * creates a new factory for creating items
- */
+* creates a new factory for creating items
+*/
 
 export default function(contextClass) {
   if (!contextClass) contextClass = Object;

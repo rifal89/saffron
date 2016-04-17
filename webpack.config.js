@@ -18,6 +18,7 @@ module.exports = {
     extensions: ['', '.json', '.jsx', '.js', '.scss']
   },
   devtool: 'inline-source-map',
+  
   sassLoader: {
     includePaths: [path.resolve(__dirname, './src')]
   },

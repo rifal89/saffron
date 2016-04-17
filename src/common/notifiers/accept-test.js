@@ -13,7 +13,7 @@ describe(__filename + '#', function() {
     var messages = [];
 
     var a = AcceptNotifer.create(sift({ type: 'change'}), CallbackNotifier.create(function(message) {
-        messages.push(message);
+      messages.push(message);
     }));
 
     a.notify({ type: 'change' });
@@ -23,6 +23,4 @@ describe(__filename + '#', function() {
     a.notify({ type: 'change' });
     expect(messages.length).to.be(2);
   });
-
-
 });

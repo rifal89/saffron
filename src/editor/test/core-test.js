@@ -23,5 +23,6 @@ describe(__filename + '#', function() {
   
   it('is properly displaying correct information', function() {
     // TODO
+    expect('ab').to.be('ab');
   });
 });

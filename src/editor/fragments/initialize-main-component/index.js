@@ -1,9 +1,8 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import throttle from 'lodash.throttle';
 import FactoryFragment from 'common/fragments/factory';
 import { APP_NS, MAIN_COMPONENT_NS } from 'common/fragments/queries';
-import { INITIALIZE, DISPOSE } from 'common/messages';
+import { INITIALIZE } from 'common/messages';
 import { CallbackNotifier, TypeNotifier } from 'common/notifiers';
 
 export default FactoryFragment.create({

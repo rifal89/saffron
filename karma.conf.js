@@ -4,10 +4,10 @@ module.exports = function (config) {
   var watchMode = process.env.WATCH === '1';
   var showCoverage = process.env.COVERAGE === '1';
   var minCoverage = Number(process.env.COVERAGE_MIN || 80);
- 
+
 
   var conf = {
-    
+
     customLaunchers: {
         Chrome_travis_ci: {
             base: 'Chrome',
@@ -31,6 +31,12 @@ module.exports = function (config) {
         watched: false,
         included: true,
         served: true
+      },
+      {
+        pattern: 'src/**/*.+(js|jsx)',
+        watched: false,
+        included: false,
+        served: true
       }
     ],
 
@@ -41,7 +47,8 @@ module.exports = function (config) {
       require('karma-spec-reporter'),
       require('karma-coverage'),
       require('karma-threshold-reporter'),
-      require('karma-sourcemap-loader')
+      require('karma-sourcemap-loader'),
+      require('karma-eslint')
     ],
 
     // list of files to exclude
@@ -51,6 +58,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/**/*.+(js|jsx)': ['eslint'],
       'all-tests.js': ['webpack', 'sourcemap']
     },
 
@@ -88,13 +96,22 @@ module.exports = function (config) {
 
     // web server port
     port: 9876,
-    
+
     // enable / disable colors in the output (reporters and logs)
     colors: true,
-    
+
     client: {
       mocha: {
         grep: process.env.GREP
+      }
+    },
+
+    eslint: {
+      stopOnError: true,
+      stopOnWarning: true,
+      showWarnings: true,
+      engine: {
+        configFile: '.eslintrc'
       }
     },
 

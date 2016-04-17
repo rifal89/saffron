@@ -8,7 +8,7 @@ window.onload = function() {
   });
   
   // catch any global unhandled promise rejections 
-  window.onunhandledrejection = function({ promise, reason }) {
+  window.onunhandledrejection = function({ reason }) {
     console.error('unhandled promise rejection', reason.stack);
   };
 

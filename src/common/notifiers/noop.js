@@ -1,13 +1,13 @@
 import BaseNotifier from './base';
 
 /**
- *  no-operation notifier
- */
+*  no-operation notifier
+*/
 
 class NoopNotifier extends BaseNotifier {
-    notify() {
-        // eat it
-    }
+  notify() {
+    // eat it
+  }
 }
 
 export default NoopNotifier;

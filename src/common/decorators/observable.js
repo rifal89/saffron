@@ -3,24 +3,24 @@ import BaseObject from 'common/object/base';
 import { ChangeMessage } from 'common/messages';
 
 /**
- * Makes the clazz observable. This means that whenever a property changes on the clazz instance via
- * setProperties, splice, or some other *mutating* method, this.notifier.notify(ChangeMessage) gets called
- * with the property changes 
- */
+* Makes the clazz observable. This means that whenever a property changes on the clazz instance via
+* setProperties, splice, or some other *mutating* method, this.notifier.notify(ChangeMessage) gets called
+* with the property changes
+*/
 
 export default function (clazz) {
   if (clazz.prototype instanceof BaseObject) {
     return decorateBaseObject(clazz);
   } else if (clazz.prototype instanceof Collection) {
     return decorateArray(clazz);
-  } else { 
+  } else {
     throw new Error('observable decorator only accepts clazz, or array types');
   }
 }
 
 /**
- * decorates a base object 
- */
+* decorates a base object
+*/
 
 function decorateBaseObject(clazz) {
   var oldSetProperties = clazz.prototype.setProperties;
@@ -39,7 +39,7 @@ function decorateBaseObject(clazz) {
           changes.push({ name: name, type: newValue == void 0 ? 'delete' : 'update', oldValue: oldValue });
         }
       }
-      
+
       oldSetProperties.call(this, properties);
 
       if (this.notifier && changes.length) {
@@ -51,31 +51,29 @@ function decorateBaseObject(clazz) {
   return clazz;
 }
 
-
 /**
- * decorates an array subclass
- */
+* decorates an array subclass
+*/
 
 function decorateArray(clazz) {
   var oldSplice = clazz.prototype.splice;
-  
+
   clazz.prototype.splice = function(start, count, ...newItems) {
 
-      var removed = this.slice(start, start + count);
-      var added   = newItems;
+    var removed = this.slice(start, start + count);
+    var added   = newItems;
 
-      oldSplice.apply(this, arguments);
-      if (this.notifier && (added.length || removed.length)) {
-        this.notifier.notify(ChangeMessage.create([{
-            target  : this,
-            start   : start,
-            count   : count,
-            removed : removed,
-            added   : added
-          }
-        ]));
-      }
-  }
-  
+    oldSplice.apply(this, arguments);
+    if (this.notifier && (added.length || removed.length)) {
+      this.notifier.notify(ChangeMessage.create([{
+        target  : this,
+        start   : start,
+        count   : count,
+        removed : removed,
+        added   : added
+      }]));
+    }
+  };
+
   return clazz;
 }

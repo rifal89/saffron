@@ -1,11 +1,11 @@
 import { create } from 'common/utils/class';
 
 class BaseNotifier {
-    notify() {
-        
-    }
+  notify() {
     
-    static create = create;    
+  }
+
+  static create = create;
 }
 
 export default BaseNotifier;

@@ -1,0 +1,33 @@
+
+
+{
+    "parser": "babel-eslint",
+    "rules": {
+      "indent": ["error", 2, { "SwitchCase": 1 }],
+      "no-console": 0,
+      "no-unused-vars": 0
+    },
+    "globals": {
+    },
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": "eslint:recommended",
+
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true,
+        "modules": true,
+        "module": true
+    },
+
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ]
+}
