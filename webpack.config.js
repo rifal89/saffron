@@ -3,7 +3,7 @@ var webpack           = require('webpack');
 
 module.exports = {
   entry: {
-    'browser' : './src/editor/entry.js'
+    'editor' : './src/editor/entry.js'
   },
   output: {
     path: __dirname + '/public',
@@ -26,6 +26,14 @@ module.exports = {
   },
   node: {
     __filename: true
+  },
+  isparta: {
+    embedSource: true,
+    noAutoWrap: true,
+    // these babel options will be passed only to isparta and not to babel-loader
+    babel: {
+      presets: ['react', 'es2015', 'stage-1', 'stage-0']
+    }
   },
   module: {
     loaders: [

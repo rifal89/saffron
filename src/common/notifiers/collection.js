@@ -5,7 +5,7 @@ class NotifierCollection extends Collection {
     notify(message) {
  
         if (!(message instanceof BaseMessage)) {
-            throw new Error(`"${message.type}" must be a BaseMessage'`);
+            console.error(`"${message.type}" must be a BaseMessage'`);
         }
         
         for (var i = 0, n = this.length; i < n; i++) {

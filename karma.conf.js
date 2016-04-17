@@ -134,13 +134,13 @@ module.exports = function (config) {
 
 
   if (showCoverage) {
-    conf.webpack.module.preLoaders = [
+    conf.webpack.module.loaders.push(
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|.*-test)/,
         loader: 'isparta'
       }
-    ];
+    );
   }
 
   config.set(conf);

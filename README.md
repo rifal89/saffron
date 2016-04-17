@@ -90,3 +90,14 @@ components/
 ```
 
 The `*-test.js` are unit tests. The `*.js` are the controller files - they import their corresponding `*.ibf` files.
+
+
+## Organization
+
+## Fragments
+
+fragments are independent parts of the application
+
+#### naming fragments
+
+fragments   
