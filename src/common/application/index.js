@@ -1,4 +1,5 @@
 import BaseObject from 'common/object/base';
+import flattenDeep from 'lodash.flattendeep';
 import NotifierCollection from 'common/notifiers/collection';
 import FragmentCollection from 'common/fragments/collection';
 import { APP_NS } from 'common/fragments/queries';
@@ -21,7 +22,9 @@ class BaseApplication extends BaseObject {
       });
       
       this.fragments = FragmentCollection.create();
-      this.fragments.push(...this.constructor.fragments);
+      
+      // fragments array can also contain nested arrays. Everything needs to be flattened though.
+      this.fragments.push(...flattenDeep(this.constructor.fragments));
       this._initializeFragments();
     }
     

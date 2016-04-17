@@ -25,6 +25,7 @@
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "lodash": "^4.11.1",
+    "lodash.flattendeep": "^4.2.0",
     "lodash.throttle": "^4.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
