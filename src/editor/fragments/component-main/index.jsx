@@ -1,10 +1,16 @@
+import './index.scss';
+
 import React from 'react';
+import StageComponent from './stage';
 import ComponentFragment from 'common/fragments/component';
 import { MAIN_COMPONENT_NS } from 'common/fragments/queries';
 
+
 class RootComponent extends React.Component {
-  render() {
-    return <div>{ Math.random() }</div>;
+  render() { 
+    return <div className='m-editor-main'>
+       <StageComponent {...this.props} />
+    </div>;
   }
 }
 

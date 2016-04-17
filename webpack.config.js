@@ -1,6 +1,8 @@
 var path              = require('path');
 var webpack           = require('webpack');
 
+var babelPresets = ['react', 'es2015', 'stage-1', 'stage-0'];
+
 module.exports = {
   entry: {
     'editor' : './src/editor/entry.js'
@@ -13,7 +15,7 @@ module.exports = {
   },
   resolve: {
     modulesDirectories: [__dirname + '/src', 'node_modules', 'bower_components', 'src', 'vendor', __dirname],
-    extensions: ['', '.json', '.jsx', '.js']
+    extensions: ['', '.json', '.jsx', '.js', '.scss']
   },
   devtool: 'inline-source-map',
   sassLoader: {
@@ -32,7 +34,7 @@ module.exports = {
     noAutoWrap: true,
     // these babel options will be passed only to isparta and not to babel-loader
     babel: {
-      presets: ['react', 'es2015', 'stage-1', 'stage-0']
+      presets: babelPresets
     }
   },
   module: {
@@ -68,7 +70,7 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015', 'stage-1', 'stage-0'],
+          presets: babelPresets,
           plugins: ['transform-decorators-legacy'],
           ignore: ['buffer']
         }

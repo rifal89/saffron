@@ -7,5 +7,7 @@ window.onload = function() {
     element: document.getElementById('app')
   }); 
   
-  app.initialize();
+  app.initialize().catch(function(error) {
+    console.error(error.stack);
+  });
 }

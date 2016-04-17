@@ -1,3 +1,5 @@
+import './scss/global';
+
 import BaseApplication from 'common/application';
 import mainComponentFragment from './fragments/component-main'; 
 import initializeMainComponentFragment from './fragments/initialize-main-component';

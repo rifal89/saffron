@@ -19,7 +19,7 @@ describe(__filename + '#', function() {
   afterEach(async function() {
     document.body.removeChild(visibleDiv);
     app.dispose();
-  });
+  }); 
   
   it('is properly displaying correct information', function() {
     // TODO
