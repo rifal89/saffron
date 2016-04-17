@@ -1,6 +1,5 @@
 import BaseFragment from './base';
 import Collection from 'common/collection';
-import assertInstanceOf from 'common/utils/assert/instance-of'; 
 
 class FragmentCollection extends Collection {
   
