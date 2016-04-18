@@ -1,7 +1,8 @@
-import BaseNotifier from './base';
+import BufferedStream from './async';
 
 describe(__filename + '#', function() {
   it('can be created', function() {
-    BaseNotifier.create();
+    BufferedStream.create();
   });
+  
 });

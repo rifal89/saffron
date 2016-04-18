@@ -1,7 +1,7 @@
 import assert from 'assert';
-import BaseNotifier from './base';
+import BaseDispatcher from './base';
 
-class CallbackNotifier extends BaseNotifier {
+class CallbackDispatcher extends BaseDispatcher {
   constructor(callback) {
     super();
     assert(callback, 'callback must exist');
@@ -12,4 +12,4 @@ class CallbackNotifier extends BaseNotifier {
   }
 }
 
-export default CallbackNotifier;
+export default CallbackDispatcher;

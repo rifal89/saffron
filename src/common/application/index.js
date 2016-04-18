@@ -1,11 +1,11 @@
 import BaseObject from 'common/object/base';
 import flattenDeep from 'lodash.flattendeep';
-import NotifierCollection from 'common/notifiers/collection';
 import FragmentCollection from 'common/fragments/collection';
+import DispatcherCollection from 'common/dispatchers/collection';
 import { APP_NS } from 'common/fragments/queries';
 
 import {
-  LoadMessage, 
+  LoadMessage,
   InitializeMessage,
   DisposeMessage
 } from 'common/messages';
@@ -18,7 +18,7 @@ class BaseApplication extends BaseObject {
 
     super({
       ...properties,
-      notifier: NotifierCollection.create()
+      dispatcher: DispatcherCollection.create()
     });
 
     this.fragments = FragmentCollection.create();
@@ -35,13 +35,13 @@ class BaseApplication extends BaseObject {
   }
 
   dispose() {
-    this.notifier.notify(DisposeMessage.create(this));
+    this.dispatcher.dispatch(DisposeMessage.create(this));
     return this;
   }
 
   async initialize() {
-    await this.notifier.notify(LoadMessage.create());
-    await this.notifier.notify(InitializeMessage.create());
+    await this.dispatcher.dispatch(LoadMessage.create());
+    await this.dispatcher.dispatch(InitializeMessage.create());
     return this;
   }
 }

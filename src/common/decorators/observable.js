@@ -4,7 +4,7 @@ import { ChangeMessage } from 'common/messages';
 
 /**
 * Makes the clazz observable. This means that whenever a property changes on the clazz instance via
-* setProperties, splice, or some other *mutating* method, this.notifier.notify(ChangeMessage) gets called
+* setProperties, splice, or some other *mutating* method, this.dispatcher.notify(ChangeMessage) gets called
 * with the property changes
 */
 
@@ -42,8 +42,8 @@ function decorateBaseObject(clazz) {
 
       oldSetProperties.call(this, properties);
 
-      if (this.notifier && changes.length) {
-        this.notifier.notify(ChangeMessage.create(changes));
+      if (this.dispatcher && changes.length) {
+        this.dispatcher.notify(ChangeMessage.create(changes));
       }
     }
   }
@@ -64,8 +64,8 @@ function decorateArray(clazz) {
     var added   = newItems;
 
     oldSplice.apply(this, arguments);
-    if (this.notifier && (added.length || removed.length)) {
-      this.notifier.notify(ChangeMessage.create([{
+    if (this.dispatcher && (added.length || removed.length)) {
+      this.dispatcher.notify(ChangeMessage.create([{
         target  : this,
         start   : start,
         count   : count,

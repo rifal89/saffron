@@ -1,7 +1,7 @@
 import Collection from 'common/collection';
 import BaseMessage from 'common/messages/base';
 
-class NotifierCollection extends Collection {
+class DispatcherCollection extends Collection {
   notify(message) {
     
     if (!(message instanceof BaseMessage)) {
@@ -16,4 +16,4 @@ class NotifierCollection extends Collection {
   }
 }
 
-export default NotifierCollection;
+export default DispatcherCollection;

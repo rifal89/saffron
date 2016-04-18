@@ -54,3 +54,9 @@
 #### Website
 
 - demo scroll effect - https://www.jetbrains.com/clion/
+
+#### languages
+
+Inspiration for the markup language used by Saffron
+
+- http://framerjs.com/

@@ -1,6 +1,6 @@
 import { create } from 'common/utils/class';
 
-class BaseNotifier {
+class BaseDispatcher {
   notify() {
     
   }
@@ -8,4 +8,4 @@ class BaseNotifier {
   static create = create;
 }
 
-export default BaseNotifier;
+export default BaseDispatcher;

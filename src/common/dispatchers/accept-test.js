@@ -1,7 +1,7 @@
 import sift from 'sift';
 import expect from 'expect.js';
 import AcceptNotifer from './accept';
-import CallbackNotifier from './callback';
+import CallbackDispatcher from './callback';
 
 describe(__filename + '#', function() {
 
@@ -12,7 +12,7 @@ describe(__filename + '#', function() {
   it('can notify when filter returns true', function() {
     var messages = [];
 
-    var a = AcceptNotifer.create(sift({ type: 'change'}), CallbackNotifier.create(function(message) {
+    var a = AcceptNotifer.create(sift({ type: 'change'}), CallbackDispatcher.create(function(message) {
       messages.push(message);
     }));
 

@@ -1,4 +1,4 @@
-import NoopNotifier from './noop';
+import NoopDispatcher from './noop';
 
 describe(__filename + '#', function() {
 

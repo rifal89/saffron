@@ -7,7 +7,7 @@
     "saffron": "./bin/saffron"
   },
   "scripts": {
-    "test": "scripts/write-all-tests.sh; COVERAGE=1 COVERAGE_MIN=98 karma start",
+    "test": "scripts/write-all-tests.sh; COVERAGE=1 COVERAGE_MIN=80 karma start",
     "test-watch": "WATCH=1 npm test",
     "start": "webpack-dev-server",
     "server": "babel-node packages/server/entry.js"

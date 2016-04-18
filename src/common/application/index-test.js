@@ -10,7 +10,7 @@ describe(__filename + '#', function() {
   it('dispatches an load & initialize messages', async function() {
     var app = Application.create();
     var messages = [];
-    app.notifier.push({
+    app.dispatcher.push({
       notify(m) {
         messages.push(m);
       }

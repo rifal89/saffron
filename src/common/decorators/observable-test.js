@@ -2,7 +2,7 @@ import expect from 'expect.js';
 import observable from './observable';
 import BaseObject from 'common/object/base';
 import Collection from 'common/collection';
-import CallbackNotifier from 'common/notifiers/callback';
+import CallbackDispatcher from 'common/dispatchers/callback';
 
 describe(__filename + '#', function () {
 
@@ -17,14 +17,14 @@ describe(__filename + '#', function () {
 
   function createObservable(properties, callback) {
     return ObservableObject.create({
-      notifier: CallbackNotifier.create(callback),
+      dispatcher: CallbackDispatcher.create(callback),
       ...properties
     });
   }
 
   function createObservableArray(properties, callback) {
     return ObservableArray.create({
-      notifier: CallbackNotifier.create(callback),
+      dispatcher: CallbackDispatcher.create(callback),
       ...properties
     });
   }
