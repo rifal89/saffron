@@ -1,10 +1,10 @@
 import BaseObject from 'common/object/base';
-import assertPropertExists from 'common/utils/assert/property-exists';
+import { assertPropertyExists } from 'common/utils/assert';
 
 class Fragment extends BaseObject {
   constructor(properties) {
     super(properties);
-    assertPropertExists(this, 'namespace');
+    assertPropertyExists(this, 'namespace');
   }
 }
 

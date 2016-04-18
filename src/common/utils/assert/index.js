@@ -1,0 +1,1 @@
+export assertPropertyExists from './property-exists';

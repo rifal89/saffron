@@ -1,11 +1,11 @@
 import BaseDispatcher from './base';
 
 /**
-*  no-operation notifier
+*  no-operation dispatcher
 */
 
 class NoopDispatcher extends BaseDispatcher {
-  notify() {
+  dispatch() {
     // eat it
   }
 }

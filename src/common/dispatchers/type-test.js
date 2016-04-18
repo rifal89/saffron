@@ -5,14 +5,14 @@ describe(__filename + '#', function() {
   it('only passes a notification if the type matches', function() {
     var message;
     var dispatcher = TypeDispatcher.create('a', {
-      notify(m) { message = m; }
+      dispatch(m) { message = m; }
     });
     
-    dispatcher.notify({ type: 'b' });
+    dispatcher.dispatch({ type: 'b' });
     expect(message).to.be(void 0);
-    dispatcher.notify({ type: 'a', data: 'value' });
+    dispatcher.dispatch({ type: 'a', data: 'value' });
     expect(message.data).to.be('value');
-    dispatcher.notify({ type: void 0, data: 'value' });
+    dispatcher.dispatch({ type: void 0, data: 'value' });
     expect(message.data).to.be('value');
   });
 });

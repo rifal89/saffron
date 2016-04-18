@@ -1,10 +1,12 @@
 import BaseMessage from './base';
-import assertPropertyExists from 'common/utils/assert/property-exists';
+import { assertPropertyExists } from 'common/utils/assert';
 
 export const LOAD       = 'load';
 export const CHANGE     = 'change';
 export const DISPOSE    = 'dispose';
 export const INITIALIZE = 'initialize';
+
+export { BaseMessage };
 
 export class ChangeMessage extends BaseMessage {
   constructor(changes) {

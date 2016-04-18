@@ -1,6 +1,6 @@
 import assert from 'assert';
-import assertPropertyExists from 'common/utils/assert/property-exists';
 import BaseObject from 'common/object/base';
+import { assertPropertyExists } from 'common/utils/assert';
 
 class BaseMessage extends BaseObject {
   constructor(properties) {

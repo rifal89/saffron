@@ -1,5 +1,5 @@
 import BaseFragment from './base';
-import assertPropertyExists from 'common/utils/assert/property-exists';
+import { assertPropertyExists } from 'common/utils/assert';
 
 class FactoryFragment extends BaseFragment {
   constructor(properties) {

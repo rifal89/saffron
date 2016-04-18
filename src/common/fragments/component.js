@@ -2,7 +2,7 @@
 import React from 'react';
 import assert from 'assert';
 import FactoryFragment from './factory';
-import assertPropertyExists from 'common/utils/assert/property-exists';
+import { assertPropertyExists } from 'common/utils/assert';
 
 class ComponentFragment extends FactoryFragment {
   constructor(properties) {    

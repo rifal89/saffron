@@ -7,7 +7,7 @@ class CallbackDispatcher extends BaseDispatcher {
     assert(callback, 'callback must exist');
     this.callback = callback;
   }
-  notify(message) {
+  dispatch(message) {
     this.callback(message);
   }
 }

@@ -29,7 +29,8 @@
     "lodash.throttle": "^4.0.1",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "sift": "^3.2.1"
+    "sift": "^3.2.1",
+    "sprintf": "^0.1.5"
   },
   "devDependencies": {
     "babel-core": "^6.7.6",

@@ -11,7 +11,7 @@ describe(__filename + '#', function() {
     var app = Application.create();
     var messages = [];
     app.dispatcher.push({
-      notify(m) {
+      dispatch(m) {
         messages.push(m);
       }
     });

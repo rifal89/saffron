@@ -12,9 +12,9 @@ class TypeDispatcher extends BaseDispatcher {
     this.dispatcher = dispatcher;
   }
 
-  notify(message) {
+  dispatch(message) {
     if (message.type === this.type) {
-      this.dispatcher.notify(message);
+      this.dispatcher.dispatch(message);
     }
   }
 }

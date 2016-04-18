@@ -1,7 +1,7 @@
 import { create } from 'common/utils/class';
 
 class BaseDispatcher {
-  notify() {
+  dispatch() {
     
   }
 

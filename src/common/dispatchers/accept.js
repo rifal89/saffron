@@ -28,8 +28,8 @@ class AcceptDispatcher extends BaseDispatcher {
    * @returns {*} A result from the dispatcher
    */
 
-  notify(message) {
-    return this.filter(message) ? this.yesDispatcher.notify(message) : this.noDispatcher.notify(message);
+  dispatch(message) {
+    return this.filter(message) ? this.yesDispatcher.dispatch(message) : this.noDispatcher.dispatch(message);
   }
 }
 

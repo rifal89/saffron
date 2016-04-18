@@ -9,18 +9,18 @@ describe(__filename + '#', function() {
     AcceptNotifer.create();
   });
 
-  it('can notify when filter returns true', function() {
+  it('can dispatch when filter returns true', function() {
     var messages = [];
 
     var a = AcceptNotifer.create(sift({ type: 'change'}), CallbackDispatcher.create(function(message) {
       messages.push(message);
     }));
 
-    a.notify({ type: 'change' });
+    a.dispatch({ type: 'change' });
     expect(messages.length).to.be(1);
-    a.notify({ type: 'abba' });
+    a.dispatch({ type: 'abba' });
     expect(messages.length).to.be(1);
-    a.notify({ type: 'change' });
+    a.dispatch({ type: 'change' });
     expect(messages.length).to.be(2);
   });
 });

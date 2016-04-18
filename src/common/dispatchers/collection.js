@@ -2,14 +2,14 @@ import Collection from 'common/collection';
 import BaseMessage from 'common/messages/base';
 
 class DispatcherCollection extends Collection {
-  notify(message) {
+  dispatch(message) {
     
     if (!(message instanceof BaseMessage)) {
       console.error(`"${message.type}" must be a BaseMessage'`);
     }
 
     for (var i = 0, n = this.length; i < n; i++) {
-      this[i].notify(message);
+      this[i].dispatch(message);
     }
 
     return message;
