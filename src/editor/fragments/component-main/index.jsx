@@ -3,7 +3,7 @@ import './index.scss';
 import React from 'react';
 import StageComponent from './stage';
 import ComponentFragment from 'common/fragments/component';
-import { MAIN_COMPONENT_NS } from 'common/fragments/queries';
+import { MAIN_COMPONENT_NS } from 'common/fragments/namespaces';
 
 
 class RootComponent extends React.Component {

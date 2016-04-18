@@ -34,9 +34,18 @@ function decorateBaseObject(clazz) {
 
       if (oldValue !== newValue) {
         if (oldValue == void 0) {
-          changes.push({ name: name, type: 'add' });
+          changes.push({ 
+            target: this, 
+            name: name, 
+            type: 'add' 
+          });
         } else {
-          changes.push({ name: name, type: newValue == void 0 ? 'delete' : 'update', oldValue: oldValue });
+          changes.push({ 
+            target: this, 
+            name: name, 
+            type: newValue == void 0 ? 'delete' : 'update', 
+            oldValue: oldValue 
+          });
         }
       }
 

@@ -1,12 +1,11 @@
 import ReactDOM from 'react-dom';
 import throttle from 'lodash.throttle';
-import FactoryFragment from 'common/fragments/factory';
-import { APP_NS, MAIN_COMPONENT_NS } from 'common/fragments/queries';
 import { INITIALIZE } from 'common/messages';
+import { MAIN_COMPONENT_NS } from 'common/fragments/namespaces';
+import { ApplicationFragment } from 'common/fragments';
 import { CallbackDispatcher, TypeDispatcher } from 'common/dispatchers';
 
-export default FactoryFragment.create({
-  namespace: APP_NS,
+export default ApplicationFragment.create({
   factory: {
     create: create
   }

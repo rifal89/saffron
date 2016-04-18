@@ -2,7 +2,8 @@ import BaseObject from 'common/object/base';
 import flattenDeep from 'lodash.flattendeep';
 import FragmentCollection from 'common/fragments/collection';
 import DispatcherCollection from 'common/dispatchers/collection';
-import { APP_NS } from 'common/fragments/queries';
+import loggerFragment from './fragments/logger';
+import { APP_NS } from 'common/fragments/namespaces';
 
 import {
   LoadMessage,
@@ -12,11 +13,14 @@ import {
 
 class BaseApplication extends BaseObject {
 
-  static fragments = [];
+  static fragments = [
+    loggerFragment
+  ];
 
   constructor(properties) {
 
     super({
+      config: {},
       ...properties,
       dispatcher: DispatcherCollection.create()
     });

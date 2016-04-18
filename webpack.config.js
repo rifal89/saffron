@@ -2,6 +2,7 @@ var path              = require('path');
 var webpack           = require('webpack');
 
 var babelPresets = ['react', 'es2015', 'stage-1', 'stage-0'];
+var babelPlugins = ['transform-decorators-legacy'];
 
 module.exports = {
   entry: {
@@ -35,7 +36,8 @@ module.exports = {
     noAutoWrap: true,
     // these babel options will be passed only to isparta and not to babel-loader
     babel: {
-      presets: babelPresets
+      presets: babelPresets,
+      plugins: babelPlugins
     }
   },
   module: {
@@ -72,7 +74,7 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: babelPresets,
-          plugins: ['transform-decorators-legacy'],
+          plugins: babelPlugins,
           ignore: ['buffer']
         }
       }

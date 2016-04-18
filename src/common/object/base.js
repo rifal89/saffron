@@ -8,9 +8,9 @@ class BaseObject {
 
   constructor(properties) {
 
-    // note that we want to just assign properties defined in the constructor here 
+    // we want to just assign properties defined in the constructor here 
     // instead of calling setProperties. This is to ensure that any subclass that overrides
-    // setProperties does NOT get the props defined in the constructor. This especially important
+    // setProperties does NOT get the props defined in the constructor. This important
     // for things like the observable decorator
     if (properties) {
       Object.assign(this, properties);

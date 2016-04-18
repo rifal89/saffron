@@ -7,9 +7,7 @@ import { assertPropertyExists } from 'common/utils/assert';
 class Logger {
   
   constructor(properties) {
-    
     Object.assign(this, properties);
-    
     assertPropertyExists(this, 'dispatcher');
   }
   
@@ -25,14 +23,13 @@ class Logger {
   
   _getFullPrefix() {
     var prefix = '';
-    if (this.parent) prefix += this.parent._getPrefix();
+    if (this.parent) prefix += this.parent._getFullPrefix();
     if (this.prefix) prefix += this.prefix;
     return prefix;
   }
   
   createChild(properties = {}) {
     return Logger.create({
-      
       
       dispatcher: this.dispatcher,
       
