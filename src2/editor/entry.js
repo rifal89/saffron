@@ -9,7 +9,7 @@ window.onload = function() {
   
   // catch any global unhandled promise rejections 
   window.onunhandledrejection = function({ reason }) {
-    console.error('unhandled promise rejection', reason.stack);
+    console.error('Unhandled promise rejection', reason.stack);
   };
 
   app.initialize().catch(function(error) {

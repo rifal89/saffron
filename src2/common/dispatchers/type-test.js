@@ -4,7 +4,7 @@ import TypeDispatcher from './type';
 describe(__filename + '#', function() {
   it('only passes a notification if the type matches', function() {
     var message;
-    var dispatcher = TypeDispatcher.create('a', {
+    var dispatcher = new TypeDispatcher('a', {
       dispatch(m) { message = m; }
     });
     

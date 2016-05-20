@@ -2,7 +2,7 @@ import Logger from 'common/logger';
 import { LOAD } from 'common/messages';
 import { LOG_DISPATCHER_NS } from 'common/logger/namespaces';
 import { ApplicationFragment } from 'common/fragments';
-import { TypeDispatcher, CallbackDispatcher, DispatcherCollection } from 'common/dispatchers';
+import { TypeDispatcher, CallbackDispatcher } from 'common/dispatchers';
 
 /**
  * Console log fragment for the application.  
@@ -18,14 +18,9 @@ function create(app) {
   
   var { dispatcher, config, fragments } = app;
   
-  // scope the logger to a limited collection
-  var logDispatcher = DispatcherCollection.create();
-  
   // register the logger as a global application 
   // property
-  app.logger = Logger.create({ 
-    dispatcher: logDispatcher
-  });
+  var logger = app.logger = Logger.create();
   
   dispatcher.push(
     TypeDispatcher.create(
@@ -35,7 +30,7 @@ function create(app) {
   );
   
   function load(message) { 
-    logDispatcher.push(
+    logger.dispatcher.push(
       ...fragments.search(LOG_DISPATCHER_NS).map((fragment) => fragment.create(config.log))
     );
   }

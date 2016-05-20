@@ -8,18 +8,13 @@ describe(__filename + '#', function() {
   it('can be created', function() {
     Logger.create({ dispatcher: NoopDispatcher.create() });
   });
-  
-  it('throws an error if dispatcher does not exist', function() {
-    expect(function() {
-      Logger.create();
-    }).to.throwError();
-  });
-  
+
   it('dispatches logs when calling various standard methods', function() {
     
     var message;
     var dispatcher = CallbackDispatcher.create((m) => message = m);
     var logger     = Logger.create({ dispatcher });
+    logger.dispatcher.push(dispatcher);
     
     logger.info('hello');
     expect(message.type).to.be('log');

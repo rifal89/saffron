@@ -1,1 +1,3 @@
 - http://blog.dominodatalab.com/visual-tools-vs-code/
+- http://clean-swift.com/mobile-development-projects-fail/ - info on design -> code translation problems.
+- css is out of control: https://news.ycombinator.com/item?id=11737702

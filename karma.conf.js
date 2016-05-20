@@ -33,7 +33,7 @@ module.exports = function (config) {
         served: true
       },
       {
-        pattern: 'src/**/*.+(js|jsx)',
+        pattern: 'src/**/*.+(ts|tsx)',
         watched: false,
         included: false,
         served: true
@@ -58,7 +58,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.+(js|jsx)': ['eslint'],
+      'src/**/*.+(t|tsx)': ['eslint'],
       'all-tests.js': ['webpack', 'sourcemap']
     },
 

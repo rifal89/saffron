@@ -1,12 +1,10 @@
-var path              = require('path');
-var webpack           = require('webpack');
-
-var babelPresets = ['react', 'es2015', 'stage-1', 'stage-0'];
-var babelPlugins = ['transform-decorators-legacy'];
+var path    = require('path');
+var webpack = require('webpack');
+var fs      = require('fs');
 
 module.exports = {
   entry: {
-    'editor' : './src/editor/entry.js'
+    'editor' : './src/editor/entry.ts'
   },
   output: {
     path: __dirname + '/public',
@@ -16,12 +14,23 @@ module.exports = {
   },
   resolve: {
     modulesDirectories: [__dirname + '/src', 'node_modules', 'bower_components', 'src', 'vendor', __dirname],
-    extensions: ['', '.json', '.jsx', '.js', '.scss']
+    extensions: ['', '.json', '.ts', '.scss']
   },
   devtool: 'inline-source-map',
   
   sassLoader: {
     includePaths: [path.resolve(__dirname, './src')]
+  },
+  quiet: false,
+  noInfo: false,
+  stats: {
+    assets: false,
+    colors: true,
+    version: false,
+    hash: false,
+    timings: false,
+    chunks: false,
+    chunkModules: false
   },
   lazy: true,
   watchOptions: {
@@ -30,15 +39,6 @@ module.exports = {
   },
   node: {
     __filename: true
-  },
-  isparta: {
-    embedSource: true,
-    noAutoWrap: true,
-    // these babel options will be passed only to isparta and not to babel-loader
-    babel: {
-      presets: babelPresets,
-      plugins: babelPlugins
-    }
   },
   module: {
     loaders: [
@@ -69,14 +69,8 @@ module.exports = {
         loader: 'json'
       },
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: babelPresets,
-          plugins: babelPlugins,
-          ignore: ['buffer']
-        }
+        test: /\.ts$/,
+        loader: 'ts-loader'
       }
     ]
   }

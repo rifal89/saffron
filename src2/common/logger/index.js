@@ -2,13 +2,16 @@ import create from 'common/utils/class/create';
 
 import { sprintf } from 'sprintf';
 import { LogMessage } from './messages';
+import { DispatcherCollection } from 'common/dispatchers';
 import { assertPropertyExists } from 'common/utils/assert';
 
 class Logger {
   
   constructor(properties) {
-    Object.assign(this, properties);
-    assertPropertyExists(this, 'dispatcher');
+    Object.assign(this, {
+      ...properties,
+      dispatcher: DispatcherCollection.create()
+    });
   }
   
   info()  { this._log('info'  , ...arguments); }

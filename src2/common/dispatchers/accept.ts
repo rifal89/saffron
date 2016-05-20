@@ -1,4 +1,3 @@
-import BaseObject from 'common/object/base';
 import BaseDispatcher from './base';
 import NoopDispatcher from './noop';
 

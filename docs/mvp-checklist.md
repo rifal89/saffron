@@ -1,0 +1,2 @@
+- [ ] sync changes to visual editor when file is saved
+- [ ] ability to manipulate elements visually

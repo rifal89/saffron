@@ -1,0 +1,28 @@
+<!-- 
+  Scoped styles are used to define isolated styles within a particular element. This tiny
+  addition to the <style /> element makes it easier to keep CSS closer to the element that's getting styled.
+  Scoped styles can also be defined within the root node
+-->
+
+<saffron>
+  
+  <link scoped type="text/css" href="./style.css" />
+  
+  <!-- this is transpiled to css -->
+  <link scoped type="text/scss" href="./style.scss" />
+  
+  <div>
+    
+    <!-- same style node as W3C style. "Scoped" attribute is defined here to limit the style
+    declaration to the parent element -->
+    <style scoped>
+      a {
+        color: red;
+      } 
+    </style>
+    
+    <a href="#">this text is red!</a>
+    
+  </div>
+  
+</saffron>

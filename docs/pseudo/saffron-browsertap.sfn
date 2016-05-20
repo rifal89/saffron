@@ -1,0 +1,33 @@
+<template id="button">
+  
+  <!-- style scoped to this template -->
+  <style>
+    
+    .button {
+      background-color: black;
+      text: white;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    
+  </style>
+  
+  <div class="button">
+    {text}
+  </div>
+  
+</template>
+
+<preview platform="desktop" browser="Chrome" browser-version="latest">
+  <hello-world-button text="hello world" />
+</preview>
+
+<preview platform="mobile" browser="ios" browser-version="9">
+  <hello-world-button text="hello world" />
+</preview>
+
+<preview platform="desktop" browser="IE" browser-version="latest">
+  <hello-world-button text="hello world" />
+</preview>
+  
+

@@ -4,7 +4,7 @@ var fs    = require('fs');
 var glob  = require('glob');
 var path  = require('path');
 
-var allTestFiles = glob.sync(__dirname + '/../src/**/*-test.+(js|jsx)');
+var allTestFiles = glob.sync(__dirname + '/../src/**/*-test.+(ts|tsx)');
 
 var buffer = [`
 /**
