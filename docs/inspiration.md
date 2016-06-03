@@ -17,6 +17,7 @@
 - http://creolabs.com/#download
 - https://readymag.com
 - http://voxelcss.com/
+- http://joelonsoftware.com/items/2016/05/30.html
 - http://pinegrow.com/
 - https://www.decosoftware.com/
 - http://principleformac.com/
